@@ -29,10 +29,15 @@ Paragraph default:1.6
 - Shades:#cf711f
 - Accents:
 - Greys
+#888
+#767676
+#6f6f6f
 #555
 #333
 
 --- 05 SHADOWS
+
+ box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 
 --- 06 BORDER RADIUS
 Default: 9px
@@ -78,7 +83,13 @@ body {
   column-gap: 6.4rem;
   row-gap: 9.6rem;
 
-  align-items: center;
+  /* margin-bottom: 9.6rem; */
+}
+/* .grid:last-child {       que
+  margin-bottom: 0;
+} */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
 }
 .grid--2-cols {
   grid-template-columns: repeat(2, 1fr);
@@ -89,8 +100,8 @@ body {
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
 }
-.grid--center-v {
-  align-items: center;
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 .heading-primary,
 .heading-secondary,
@@ -125,7 +136,7 @@ body {
   margin-bottom: 1.6rem;
   letter-spacing: 0.75px;
 }
-
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -134,10 +145,17 @@ body {
   font-size: 2rem;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
+
+  /* Only necessary for [.btn] */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
   /* put transaction on original "state" */
   /* transition: background-color 0.3s; */
   transition: all 0.3s;
 }
+
 .btn--full:link,
 .btn--full:visited {
   background-color: #e67e22;
@@ -169,11 +187,45 @@ body {
   transition: all 0.3s;
 }
 
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
 .link:hover,
 .link:active {
   color: #cf711f;
   border-bottom: 1px solid transparent;
 }
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: inset 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {
   margin-right: 1.6rem !important;
